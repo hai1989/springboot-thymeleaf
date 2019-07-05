@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SpringBoot-thymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <!--引入js-->
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+</head>
+<body >
+<h>user信息如下：</h>
+<!--显示对象-->
+<div th:object="${users}">
+    <p th:text="'用户ID:'+*{id}"/>
+    <p th:text="'用户Name:'+*{name}"/>
+    <p th:text="'用户Password:'+*{password}"/>
+</div>
+<!--显示对象-->
+    <p th:text="'用户手机号：'+${users.phone}" />
+    <p th:text="'用户email:'+${users.getEmail()}"/>
+    <p th:text="'用户地址:'+${users.address}"/>
+    <p th:text="'用户年龄：'+${users.age}"/>
+    <p th:text="'用户状态:'+${status}"/>
+    <p th:text="'用户性别:'+${sex}"/>
+    <p th:text="'用户创建时间：'+${users.createTime}"/>
+    <p th:text="'用户更新时间:'+${users.getUpdateTime()}"/>
+<!--th:utext和th:text的区别是：th:text会对<和>进行转义，而th:utext不会转义-->
+    <p th:utext="'带样式：'+${name1}"/>
+    <p>
+        <a th:href="@{/user/myMap}">访问controller方法</a><br>
+        <a th:href="@{/html/test1.html}">访问静态页面</a>
+    </p>
+<div>
+<div>
+    <div th:include="@{./footer} :: companyInfo" th:with="projectName=百度"/>
+</div>
+</div>
+</body>
+</html>

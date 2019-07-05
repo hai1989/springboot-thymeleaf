@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${title}"></title>
+    <div th:replace="common/head::static"></div>
+</head>
+<body class="container">
+    <div>
+        <table border="3">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>姓名</th>
+                    <th>密码</th>
+                    <th>性别</th>
+                    <th>年龄</th>
+                    <th>手机号</th>
+                    <th>邮箱</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td th:text="${user.name}"></td>
+                    <td th:text="${user.password}"></td>
+                    <td>
+                        <span th:text="${user.sex} eq '0'?'男':'女'" />
+                    </td>
+                    <!--<td th:text="${user.age}">-->
+                    <td>
+                        <!--if-->
+                        <!--<span  th:if="${user.age lt 18}">未成人</span>-->
+                        <!--unless-->
+                        <!--<span th:unless="${user.getAge() gt 18}">你还不满18岁，不能够看电影！</span>-->
+                        <!--switch-->
+                        <!--<span th:switch="${user.age}">-->
+                            <!--<span th:case="18">成年了</span>-->
+                            <!--<span th:case="30">中年了</span>-->
+                            <!--<span th:case="60">老年了</span>-->
+                        <!--</span>-->
+                        <!--三目运算符-->
+                        <span th:text="${user.age}<=18?'未成年':'成年了'"></span>
+                    </td>
+                    <td th:text="${user.phone}"></td>
+                    <td th:text="${user.email}"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr >
+                    <!--<td colspan="7" align="center"> <a th:href="@{/html/test1.html}">返回新增表单</a></td>-->
+                    <td colspan="7" align="center"> <a th:href="@{/user/add}">返回新增表单</a></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>SpringBoot-thymeleaf</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body >
+<h>user信息如下：</h>
+<body>
+    <table>
+        <tr><td>No.</td><td>KEY</td><td>UID</td><td>姓名</td><td>密码</td><td>偶数</td><td>奇数</td></tr>
+        <tr th:each="memberEntry,memberStat:${map}">
+            <td th:text="${memberStat.index + 1}"/>
+            <td th:text="${memberEntry.key}"/>
+            <td th:text="${memberEntry.value.id}"/>
+            <td th:text="${memberEntry.value.name}"/>
+            <td th:text="${memberEntry.value.password}"/>
+            <td th:text="${memberStat.even}"/>
+            <td th:text="${memberStat.odd}"/>
+        </tr>
+    </table>
+</body>
+
+    </body>
+<div>
+
+</div>
+</body>
+</html>
